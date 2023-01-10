@@ -6,6 +6,8 @@
     display: flex;
     justify-content: space-between;
 }
+
+.bg--dark 
 .main-header,
 .header-button {
     color : var(--white);

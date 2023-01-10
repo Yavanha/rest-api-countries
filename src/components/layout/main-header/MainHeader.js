@@ -1,4 +1,4 @@
-import MoonIcon from '../UI/icons/MoonIcon'
+import MoonIcon from '../../UI/icons/MoonIcon'
 import classes from './MainHeader.module.css'
 
 const MainHeader  = props => {
