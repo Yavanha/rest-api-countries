@@ -6,7 +6,6 @@ import Card from "../../UI/Card"
 const Country = props => {
     
     const {name, population, capital, flags, region} = props.data
-    console.log({capital})
     return <Card className={classes.country}>
         <div className={classes['country-img']}>
             <img src={flags.png} alt={`The flag of ${name.official}`} />

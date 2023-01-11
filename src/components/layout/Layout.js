@@ -8,6 +8,7 @@ const Layout = props => {
     return <Fragment>
         <MainHeader />
         <main className={classes['main-container']}>
+            
             {props.children}
         </main>
     </Fragment>

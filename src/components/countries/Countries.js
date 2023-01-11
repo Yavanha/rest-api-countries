@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import SearchInput from '../layout/search-input/SearchInput'
 import classes from './Countries.module.css'
 import Country from './country/Country'
 import { fetchCountries } from '../../store/country-slice'
@@ -17,7 +16,7 @@ const Countries = props => {
 
 
     useEffect(() => {
-        dispatch(fetchCountries())
+        dispatch(fetchCountries('https://restcountries.com/v3.1/all'))
     }, [dispatch])
 
 
@@ -39,10 +38,7 @@ const Countries = props => {
 
 
     return <div className={classes.countries}>
-        <header className={classes['countries-header']}>
-            <SearchInput />
-
-        </header>
+      
         {countriesElt}
         
     </div>

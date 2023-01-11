@@ -3,12 +3,6 @@
     margin: 0 auto;
 }
 
-.countries-header {
-
-    margin-bottom: 4rem;
-}
-
-
 
 .countries-list {
     display: grid;
@@ -26,8 +20,5 @@
     .countries-list {
         justify-items: center;
     }
-
-    
-
 
 }

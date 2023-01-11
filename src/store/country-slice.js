@@ -27,15 +27,25 @@ const countrySlice = createSlice({
 })
 
 
+
+
 export const countryActions = countrySlice.actions;
 
-export const fetchCountries = () => {
+
+
+let controller, signal;
+
+export const fetchCountries = (url) => {
 
     return async (dispatch) => {
-
         const sendRequest = async () => {
             dispatch(countryActions.setLoading(true))
-            const response = await fetch('https://restcountries.com/v3.1/all')
+            if (controller) {
+                controller.abort()
+            }
+            controller = new AbortController()
+            signal = controller.signal
+            const response = await fetch(url, { method: 'GET', signal })
             if (!response.ok)
                 throw new Error('Something went wrong');
 
@@ -47,14 +57,13 @@ export const fetchCountries = () => {
         try {
 
             const items = await sendRequest()
-            console.log('fetchCountries ', items)
             dispatch(countryActions.setCountries(items))
         } catch (error) {
             dispatch(countryActions.setError(error.message))
 
         }
         dispatch(countryActions.setLoading(false))
-
+        dispatch(countryActions.setError(null))
 
 
     }

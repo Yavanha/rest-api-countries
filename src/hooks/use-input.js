@@ -5,7 +5,7 @@ const useInput = () => {
     const [value , setValue] = useState('')
 
 
-    const changeHandler = (event) => setValue(event.target.value)
+    const changeHandler = (event) => setValue(event.target.value.trim())
 
 
     return {
