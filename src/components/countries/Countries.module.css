@@ -1,4 +1,11 @@
 .countries  {
-    padding: 0 2rem;
+    padding: 0 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:3rem;
+    justify-items: center
+}
 
+.countries > li {
+    max-width: 25rem;
 }

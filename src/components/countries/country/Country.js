@@ -13,11 +13,11 @@ const Country = props => {
         </div>
         <div className={classes['country-info']}>
             <h4>Brazil</h4>
-            <ul>
+            <ul className={classes['list-infos']}>
                 
-                <li>Population: 100000000</li>
-                <li>Region: Americas</li>
-                <li>Capital</li>
+                <li><span className={classes['legend-info']} >Population</span>: 100000000</li>
+                <li><span className={classes['legend-info']}>Region:</span> Americas</li>
+                <li><span className={classes['legend-info']}>Capital:</span> Berlin</li>
             </ul>
         </div>
     </Card>

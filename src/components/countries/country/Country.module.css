@@ -1,9 +1,28 @@
 
+
+
 .country-img  img {
     border-radius: .5rem .5rem 0 0;
+
 }
 
 
 .country-info {
     padding: 2rem;
+    padding-bottom: 4rem;
+    color: var(--white)
 }
+
+.country-info h4 {
+    margin-bottom: 1rem;
+}
+
+.list-infos {
+    display: flex;
+    flex-direction: column;
+    row-gap: .5rem;
+}
+.legend-info {
+    font-weight: 600;
+}
+
