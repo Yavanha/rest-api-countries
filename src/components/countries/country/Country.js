@@ -4,20 +4,20 @@ import Card from "../../UI/Card"
 
 
 const Country = props => {
-
-
-
+    
+    const {name, population, capital, flags, region} = props.data
+    console.log({capital})
     return <Card className={classes.country}>
         <div className={classes['country-img']}>
-            <img src={props.src} alt={props.alt} />
+            <img src={flags.png} alt={`The flag of ${name.official}`} />
         </div>
         <div className={classes['country-info']}>
-            <h4>Brazil</h4>
+            <h4>{name.official}</h4>
             <ul className={classes['list-infos']}>
                 
-                <li><span className={classes['legend-info']} >Population</span>: 100000000</li>
-                <li><span className={classes['legend-info']}>Region:</span> Americas</li>
-                <li><span className={classes['legend-info']}>Capital:</span> Berlin</li>
+                <li><span className={classes['legend-info']} >Population</span>: {population}</li>
+                <li><span className={classes['legend-info']}>Region:</span> {region}</li>
+                {capital && <li><span className={classes['legend-info']}>Capital:</span> {capital[0]}</li>}
             </ul>
         </div>
     </Card>

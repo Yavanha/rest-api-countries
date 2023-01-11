@@ -4,20 +4,22 @@
 }
 
 .countries-header {
-    
+
     margin-bottom: 4rem;
 }
 
 
 
-.countries-list  {
+.countries-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    grid-gap: 5rem;
-    justify-items: space-between;
-    align-content: space-between;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    justify-items: center;
+    grid-gap: 7rem;
 }
 
+.countries-list > * {
+    max-width: 25rem;
+}
 
 
 @media screen and (max-width: 37.5rem) {
@@ -25,8 +27,7 @@
         justify-items: center;
     }
 
-    .countries-list > li {
-    max-width: 22rem
-}
+    
+
 
 }
