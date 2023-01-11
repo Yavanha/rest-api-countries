@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import MainHeader from "../main-header/MainHeader"
+import MainHeader from "./main-header/MainHeader"
 
 import classes from './Layout.module.css'
 
