@@ -13,9 +13,9 @@
 
   --dark-blue: hsl(209, 23%, 22%);
   /*- Dark Blue (Dark Mode Elements): */
-  --very-dark-blue: hsl(207, 26%, 17%);
+  --dark-very-dark-blue: hsl(207, 26%, 17%);
   /* - Very Dark Blue (Dark Mode Background):  */
-  --very-dark-blue: hsl(200, 15%, 8%);
+  --light-very-dark-blue: hsl(200, 15%, 8%);
   /* - Very Dark Blue (Light Mode Text) */
   --dark-gray: hsl(0, 0%, 52%);
   /* - Dark Gray (Light Mode Input) */
@@ -43,4 +43,9 @@ button {
   cursor: pointer;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }

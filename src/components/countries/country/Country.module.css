@@ -1,0 +1,9 @@
+
+.country-img  img {
+    border-radius: .5rem .5rem 0 0;
+}
+
+
+.country-info {
+    padding: 2rem;
+}
