@@ -8,7 +8,7 @@ const SearchInput = props => {
     const {value : searchValue , changeHandler : searchChangeHandler } = useInput()
 
     return <div className={classes['search-input']}>
-        <SearchIcon heigh='20' width='20' color='#FFFFFF'/>
+        <SearchIcon height='20' width='20' color='#FFFFFF'/>
         <Input className={classes.input} value={searchValue} onChange={searchChangeHandler} placeholder='Search for a country...'/>
     </div>
 }

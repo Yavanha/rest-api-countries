@@ -1,28 +1,37 @@
+import SearchInput from '../layout/search-input/SearchInput'
 import classes from './Countries.module.css'
 import Country from './country/Country'
 
 
 const Countries = props => {
 
-    return <ul className={classes.countries}>
-        <li>
+    return <div className={classes.countries}>
+        <header className={classes['countries-header']}>
+            <SearchInput />
 
-        <Country src="https://flagcdn.com/w320/gd.png"  alt='gd-country'/>
-    
-        </li>
-        <li>
 
-<Country src="https://flagcdn.com/w320/gd.png"  alt='gd-country'/>
-</li>
-<li>
+        </header>
+        <ul className={classes['countries-list']}>
+            <li>
 
-<Country src="https://flagcdn.com/w320/gd.png"  alt='gd-country'/>
-</li>
-<li>
+                <Country src="https://flagcdn.com/w320/gd.png" alt='gd-country' />
 
-<Country src="https://flagcdn.com/w320/gd.png"  alt='gd-country'/>
-</li>
-    </ul>
+            </li>
+            <li>
+
+                <Country src="https://flagcdn.com/w320/gd.png" alt='gd-country' />
+            </li>
+            <li>
+
+                <Country src="https://flagcdn.com/w320/gd.png" alt='gd-country' />
+            </li>
+            <li>
+
+                <Country src="https://flagcdn.com/w320/gd.png" alt='gd-country' />
+            </li>
+        </ul>
+    </div>
+
 }
 
 export default Countries

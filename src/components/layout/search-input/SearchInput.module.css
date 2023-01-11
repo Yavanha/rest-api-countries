@@ -1,11 +1,9 @@
 .search-input {
     display: flex;
     column-gap: 2rem;
-    width: 100%;
     background-color: var(--dark-blue);
     padding: 1.5rem 2.5rem;
     border-radius: .5rem;
-    margin-bottom: 10rem;
     
 }
 
