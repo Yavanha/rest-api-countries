@@ -1,0 +1,32 @@
+.request-status {
+    height: .5rem;
+
+
+    transform-origin: left;
+    transition-property: transform;
+
+
+}
+
+.loading {
+    background-color: #00FFAA ;
+    animation: loading .5s   infinite;
+
+}
+
+
+.error {
+    background-color: #df3b4e;
+}
+
+
+@keyframes loading {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+
+}

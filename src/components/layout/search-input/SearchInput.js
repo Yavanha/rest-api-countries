@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import useInput from "../../../hooks/use-input"
 import { useDispatch } from "react-redux"
-import {fetchCountries } from "../../../store/country-slice"
+import {abortRequest, fetchCountries } from "../../../store/country-slice"
 import SearchIcon from "../../UI/icons/SearchIcon"
 import Input from "../../UI/Input"
 import classes from "./SearchInput.module.css"
@@ -14,12 +14,19 @@ const SearchInput = props => {
     const { value: searchValue, changeHandler: searchChangeHandler } = useInput()
     const dispatch = useDispatch()
     useEffect(() => {
-
-        if (searchValue.trim() !== '') {
-            dispatch(fetchCountries(`https://restcountries.com/v3.1/name/${searchValue}`))
+     
+        const interval = setTimeout(() => {
+            if (searchValue.trim() !== '') {
+                dispatch(fetchCountries(`https://restcountries.com/v3.1/name/${searchValue}`))
+            }
+            else
+                dispatch(fetchCountries('https://restcountries.com/v3.1/all'))
+        }, 1000)
+        return () => {
+            clearInterval(interval)
+            console.log(interval)
+            dispatch(abortRequest())
         }
-        else
-            dispatch(fetchCountries('https://restcountries.com/v3.1/all'))
     }, [searchValue, dispatch])
 
 

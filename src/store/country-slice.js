@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { uiActions } from "./ui-slice";
+
 const initialState = {
     items: [],
-    isLoading: false,
-    error: null,
+
 
 }
 
@@ -15,13 +16,9 @@ const countrySlice = createSlice({
         setCountries(state, action) {
             state.items = action.payload;
         },
-        setLoading(state, action) {
-            state.isLoading = action.payload
-        },
 
-        setError(state, action) {
-            state.error = action.payload
-        }
+
+
     }
 
 })
@@ -35,23 +32,40 @@ export const countryActions = countrySlice.actions;
 
 let controller, signal;
 
+export const abortRequest = () => {
+    return (dispatch) => {
+        if (controller)
+            controller.abort()
+        dispatch(uiActions.setLoading(false))
+        dispatch(uiActions.setError(null))
+    }
+
+}
+
 export const fetchCountries = (url) => {
 
     return async (dispatch) => {
+        dispatch(uiActions.setLoading(true))
+        dispatch(uiActions.setError(null))
         const sendRequest = async () => {
-            dispatch(countryActions.setLoading(true))
-            if (controller) {
-                controller.abort()
-            }
             controller = new AbortController()
             signal = controller.signal
-            const response = await fetch(url, { method: 'GET', signal })
-            if (!response.ok)
-                throw new Error('Something went wrong');
+            try {
+                const response = await fetch(url, { method: 'GET', signal })
+                if (!response.ok)
+                    throw new Error('Something went wrong');
 
-            const datas = response.json();
+                const datas = response.json();
 
-            return datas;
+                return datas;
+
+            } catch (err) {
+                
+            }
+
+            return []
+            
+
         }
 
         try {
@@ -59,12 +73,12 @@ export const fetchCountries = (url) => {
             const items = await sendRequest()
             dispatch(countryActions.setCountries(items))
         } catch (error) {
-            dispatch(countryActions.setError(error.message))
+            console.log({ error })
+            dispatch(uiActions.setError(error.message))
 
         }
-        dispatch(countryActions.setLoading(false))
-        dispatch(countryActions.setError(null))
 
+        dispatch(uiActions.setLoading(false))
 
     }
 }

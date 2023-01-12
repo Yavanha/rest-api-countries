@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import classes from './Countries.module.css'
 import Country from './country/Country'
 import { fetchCountries } from '../../store/country-slice'
+import RequestStatus from '../UI/RequestStatus'
 
 
 
@@ -20,27 +21,30 @@ const Countries = props => {
     }, [dispatch])
 
 
-    if(isLoading) {
+    if (isLoading) {
         return <p>Loading...</p>
     }
 
-    if(error) {
+    if (error) {
         return <p>{error}</p>
     }
 
-    const countriesElt = (<ul className={classes['countries-list']}>
-        {countries.map(country => <li key={country.name.official}>
-            <Country data={country} src="https://flagcdn.com/w320/gd.png" alt='gd-country' />
-        </li>)}
-    </ul>)
+    let countriesElt = <p className={classes['no-data']}>No countries found ! </p>
 
+    if (countries.length) {
+         countriesElt = (<ul className={classes['countries-list']}>
+            {countries.map(country => <li key={country.name.official}>
+                <Country data={country} src="https://flagcdn.com/w320/gd.png" alt='gd-country' />
+            </li>)}
+        </ul>)
+    } 
 
 
 
     return <div className={classes.countries}>
-      
+        <RequestStatus />
         {countriesElt}
-        
+
     </div>
 
 }

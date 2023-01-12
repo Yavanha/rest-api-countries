@@ -10,6 +10,7 @@ function App() {
 
   return (
     <Layout >
+      
       <CountryHeader/>
       <Countries />
 

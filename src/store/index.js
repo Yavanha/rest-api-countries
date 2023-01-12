@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import CountriesReduce from './country-slice'
+import countriesReducer from './country-slice'
+import uiReducer from "./ui-slice"
 
 
 const store = configureStore({
     reducer : {
-        countries : CountriesReduce
+        countries : countriesReducer,
+        ui : uiReducer
     }
 })
 
