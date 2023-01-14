@@ -4,7 +4,7 @@ import { uiActions } from "./ui-slice";
 
 const initialState = {
     items: [],
-
+    selected : []
 
 }
 
@@ -16,8 +16,15 @@ const countrySlice = createSlice({
         setCountries(state, action) {
             state.items = action.payload;
         },
+        
+        addSelected(state, action) {
+            const country = action.payload;
+            state.selected.push(country);
+        },
 
-
+        removeSelected(state) {
+            state.selected.pop()
+        }
 
     }
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchCountries } from '../../../store/country-slice'
+import { countryActions, fetchCountries } from '../../../store/country-slice'
 import classes from './CountryDetails.module.css'
 
 const CountryDetails = props => {
@@ -17,6 +17,10 @@ const CountryDetails = props => {
             dispatch(fetchCountries(`https://restcountries.com/v3.1/alpha?codes=${borders.toString()}`))
     }, [borders, dispatch])
 
+
+    const selectedHandler = (e) => {
+    dispatch(countryActions.addSelected(borderCountries[+e.target.id]))
+    }
 
     return <article className={classes['country-details']}>
         <header className={classes['country-header']}>
@@ -44,8 +48,8 @@ const CountryDetails = props => {
                 <div className={classes.borders}>
                     <h4 className={classes['borders-title']}>Border countries:</h4>
                     <div className={classes['borders-actions']}>
-                        {borderCountries.slice(0, 3).map(borderCountry =>
-                            <button className={classes['border-btn']}>{borderCountry.name.common}</button>
+                        {borderCountries.slice(0, 3).map((borderCountry, i) =>
+                            <button id={i} key={borderCountry.name.official} onClick={selectedHandler} className={classes['border-btn']}>{borderCountry.name.common}</button>
                         )}
                     </div>
                 </div>
