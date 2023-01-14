@@ -4,9 +4,14 @@ import Card from "../../UI/Card"
 
 
 const Country = props => {
+
+
+    const selectCountryHandler = () =>{
+        props.onSelected(props.data)
+    }
     
     const {name, population, capital, flags, region} = props.data
-    return <Card className={classes.country}>
+    return <Card className={classes.country} onClick={selectCountryHandler}>
         <div className={classes['country-img']}>
             <img src={flags.png} alt={`The flag of ${name.official}`} />
         </div>

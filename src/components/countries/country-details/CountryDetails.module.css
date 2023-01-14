@@ -1,0 +1,92 @@
+.country-details {
+    padding: 1.5rem;
+}
+
+
+.country-header {
+    margin-bottom: 5rem;
+}
+
+
+
+.country-details button {
+    color : var(--white);
+    background-color: var(--dark-blue);
+}
+
+.back-btn {
+    box-shadow: .1rem .1rem 1rem .05rem rgba(0,0,0,.3);
+    border-radius: .1rem;
+    padding: .75rem 4rem;
+}
+
+.details-body {
+    color : var(--white);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem 10rem;
+}
+
+
+.details-body > * {
+    flex: 1 1 15rem;
+}
+
+.details-img {
+    object-fit: contain;
+}
+
+.details-infos {
+    display: flex;
+    font-size: 1.4rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+    row-gap: 2rem;
+}
+
+
+.list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem
+}
+
+.list-container > * {
+    flex: 1 1 20rem
+}
+
+.details-infos li :is(span) {
+    font-weight: 600;
+    margin-right: .5rem;
+}
+
+.list-infos {
+    display: flex;
+    flex-direction: column;
+    
+    row-gap: 1rem;
+}
+
+.borders-title {
+    color :var(--white);
+}
+
+.borders {
+    display: flex;
+    flex-wrap: wrap;
+    gap : 3rem
+}
+
+.borders-actions {
+    display: flex;
+    column-gap: 1rem;
+}
+
+
+
+
+.border-btn {
+    padding: .5rem 1rem;
+}
+
+
