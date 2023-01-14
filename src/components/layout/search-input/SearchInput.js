@@ -21,7 +21,7 @@ const SearchInput = props => {
             }
             else
                 dispatch(fetchCountries('https://restcountries.com/v3.1/all'))
-        }, 1000)
+        }, 300)
         return () => {
             clearInterval(interval)
             console.log(interval)

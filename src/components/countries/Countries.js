@@ -29,17 +29,17 @@ const Countries = props => {
         return <p>{error}</p>
     }
 
-    let countriesElt = <p className={classes['no-data']}>No countries found ! </p>
-
-    if (countries.length) {
-         countriesElt = (<ul className={classes['countries-list']}>
-            {countries.map(country => <li key={country.name.official}>
-                <Country data={country} src="https://flagcdn.com/w320/gd.png" alt='gd-country' />
-            </li>)}
-        </ul>)
+    
+    
+    if (!countries.length) {
+        return <p className={classes['no-data']}>No countries found ! </p>
     } 
 
-
+    const  countriesElt = (<ul className={classes['countries-list']}>
+    {countries.map(country => <li key={country.name.official}>
+        <Country data={country} src="https://flagcdn.com/w320/gd.png" alt='gd-country' />
+    </li>)}
+</ul>)
 
     return <div className={classes.countries}>
         <RequestStatus />
