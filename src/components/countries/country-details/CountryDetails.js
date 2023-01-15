@@ -19,7 +19,7 @@ const CountryDetails = props => {
 
 
     const selectedHandler = (e) => {
-    dispatch(countryActions.addSelected(borderCountries[+e.target.id]))
+        dispatch(countryActions.addSelected(borderCountries[+e.target.id]))
     }
 
     return <article className={classes['country-details']}>

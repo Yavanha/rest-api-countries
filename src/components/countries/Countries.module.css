@@ -17,6 +17,9 @@
     max-width: 25rem;
 }
 
+
+.error,
+.loading,
 .no-data {
     font-size: 5rem;
     color : var(--white);    
@@ -25,6 +28,10 @@
     margin: 4rem;
 }
 
+
+.error {
+    color : red;
+}
 
 @media screen and (max-width: 37.5rem) {
     .countries-list {

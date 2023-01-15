@@ -67,7 +67,7 @@ export const fetchCountries = (url) => {
                 return datas;
 
             } catch (err) {
-                
+                console.log(err.message)
             }
 
             return []
@@ -79,13 +79,14 @@ export const fetchCountries = (url) => {
 
             const items = await sendRequest()
             dispatch(countryActions.setCountries(items))
+            
         } catch (error) {
             console.log({ error })
             dispatch(uiActions.setError(error.message))
-
+            
         }
-
         dispatch(uiActions.setLoading(false))
+
 
     }
 }
