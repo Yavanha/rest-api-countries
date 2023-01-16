@@ -1,0 +1,13 @@
+.card {
+    border-radius: .5rem;
+}
+
+
+.card.dark {
+    background-color: var(--dark-blue);
+}
+
+.card.light {
+    background-color: var(--white);
+    box-shadow: .2rem .2rem .5rem .05rem rgba(0, 0, 0, 0.2)
+}

@@ -1,0 +1,41 @@
+.countries {
+    max-width: 125rem;
+    margin: 0 auto;
+}
+
+
+
+
+.countries-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    justify-items: center;
+    grid-gap: 7rem;
+}
+
+.countries-list > * {
+    max-width: 25rem;
+}
+
+
+.error,
+.loading,
+.no-data {
+    font-size: 5rem;
+    color : var(--white);    
+    font-weight: 800;
+    text-align: center;
+    margin: 4rem;
+}
+
+
+.error {
+    color : red;
+}
+
+@media screen and (max-width: 37.5rem) {
+    .countries-list {
+        justify-items: center;
+    }
+
+}
