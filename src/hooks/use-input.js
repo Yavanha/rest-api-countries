@@ -1,8 +1,8 @@
 import { useState } from "react"
 
-const useInput = () => {
+const useInput = (defaultValue = '') => {
 
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState(defaultValue)
     const [isTouched, setIsTouched] = useState(false)
     
 

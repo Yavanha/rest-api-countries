@@ -10,8 +10,8 @@ function App() {
 
   return (
     <Layout >
-            <CountryHeader />
-      
+      <CountryHeader />
+
       <Countries />
 
     </Layout>
