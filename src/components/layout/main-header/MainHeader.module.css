@@ -1,15 +1,23 @@
 .main-header {
     color : var(--white);
-    
-    background-color: var(--dark-blue);
+   
+
     padding: 3rem 1rem;
     display: flex;
     justify-content: space-between;
 }
 
-.bg--dark 
-.main-header,
-.header-button {
+.main-header.dark {
+    background-color: var(--dark-blue);
+}
+
+.main-header.light {
+    background-color: var(--white);
+}
+
+
+.main-header .dark,
+.header-button .dark{
     color : var(--white);
 }
 

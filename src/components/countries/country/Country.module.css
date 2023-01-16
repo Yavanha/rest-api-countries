@@ -10,12 +10,15 @@
 
 .country:hover {
     transform: scale(1.05);
+}
 
+.country.dark:hover {
     box-shadow: .2rem .2rem 2rem .1rem var(--dark-gray);
 }
 
-
-
+.country.light:hover {
+    box-shadow: .2rem .2rem 2rem .1rem var(--dark-blue);
+}
 
 .country-img {
     width: 100%;
@@ -28,9 +31,6 @@
     width: 100%;
     
 }
-
-
-
 
 .country-info {
     padding: 2rem;

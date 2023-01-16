@@ -4,8 +4,11 @@ const initialState = {
     status : {
         isLoading: false,
         error: null,
-
-    }
+    },
+    theme : {
+        dark : false,
+        mode : 'dark'
+    },
 }
 
 const uiSlice = createSlice ({
@@ -19,6 +22,11 @@ const uiSlice = createSlice ({
 
         setError(state, action) {
             state.status.error = action.payload
+        },
+
+        setThemeMode(state) { 
+            state.theme.dark = !state.theme.dark
+            state.theme.mode = state.theme.dark ?  'dark' : 'light'
         }
     }
 })

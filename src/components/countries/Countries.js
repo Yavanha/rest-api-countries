@@ -27,13 +27,10 @@ const Countries = props => {
         dispatch(countryActions.addSelected(country))
     }
 
-
-
     const backToCountriesHandler = () => {
         dispatch(countryActions.removeSelected())
-
-
     }
+
 
     if (selectedCountries.length > 0) {
         const selected = selectedCountries.at(-1);
@@ -43,7 +40,6 @@ const Countries = props => {
     }
 
     if (isLoading) {
-        console.log('loading...')
         return <p className={classes.loading}>Loading...</p>
     }
 

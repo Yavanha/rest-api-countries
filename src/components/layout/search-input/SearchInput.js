@@ -11,11 +11,12 @@ import classes from "./SearchInput.module.css"
 const SearchInput = props => {
 
     
-    const { value: searchValue, changeHandler: searchChangeHandler } = useInput()
+    const { value: searchValue, isTouched : searchIsTouched, changeHandler: searchChangeHandler } = useInput()
     const dispatch = useDispatch()
     useEffect(() => {
      
         const interval = setTimeout(() => {
+            if(!searchIsTouched) return;
             if (searchValue.trim() !== '') {
                 dispatch(fetchCountries(`https://restcountries.com/v3.1/name/${searchValue}`))
             }
@@ -27,7 +28,7 @@ const SearchInput = props => {
             console.log(interval)
             dispatch(abortRequest())
         }
-    }, [searchValue, dispatch])
+    }, [searchValue, dispatch, searchIsTouched])
 
 
     return <div className={classes['search-input']}>

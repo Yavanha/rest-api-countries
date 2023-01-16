@@ -1,8 +1,14 @@
 .main-container {
-    background-color: var(--dark-very-dark-blue);
     min-height: 100vh;
     padding: 2rem 1rem;
 }
 
 
 
+.dark {
+    background-color: var(--dark-very-dark-blue);
+}
+
+.light {
+    background-color: var(--very-light-gray);
+}

@@ -1,6 +1,9 @@
 .country-details {
     padding: 1.5rem;
+    max-width: 125rem;
+    margin: 0 auto;
 }
+
 
 
 .country-header {

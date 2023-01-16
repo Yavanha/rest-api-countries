@@ -1,17 +1,18 @@
 import classes from './Country.module.css'
 
 import Card from "../../UI/Card"
+import { useSelector } from 'react-redux'
 
 
 const Country = props => {
-
+    const theme = useSelector(state => state.ui.theme.mode)
 
     const selectCountryHandler = () =>{
         props.onSelected(props.data)
     }
     
     const {name, population, capital, flags, region} = props.data
-    return <Card className={classes.country} onClick={selectCountryHandler}>
+    return <Card theme={theme} className={`${classes.country} ${classes[theme]}`} onClick={selectCountryHandler}>
         <div className={classes['country-img']}>
             <img src={flags.png} alt={`The flag of ${name.official}`} />
         </div>
