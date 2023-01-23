@@ -1,20 +1,40 @@
 .search-input {
     display: flex;
     column-gap: 2rem;
-    background-color: var(--dark-blue);
     padding: 1.5rem 2.5rem;
     border-radius: .5rem;
     flex-basis: 40rem;
     
 }
 
+.search-input.dark {
+    background-color: var(--dark-blue);
+
+}
+
+.search-input.light {
+    background-color: var(--white);
+    box-shadow: .2rem .2rem .5rem .05rem rgba(0, 0, 0, 0.2)
+}
+
 .input {
     width: 100%;
     background: none;
     border: none;
+    
+}
+
+.input.dark{
     color: var(--white);
 
 }
+
+.input.light {
+    color: var(--dark-gray);
+}
+
+
+
 
 input:focus {
     outline: none;

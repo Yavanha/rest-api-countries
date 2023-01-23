@@ -10,11 +10,11 @@ const CloseCircleIcon = props => {
         onClick={props.onClick}>
         <title>Close Circle</title>
         <path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"
-            fill={props.fill}
+            fill={props.fillOuter}
             stroke="currentColor"
             strokeMiterlimit="10"
             strokeWidth="32" />
-        <path fill={props.fill}
+        <path fill={props.fillInner}
             stroke="currentColor"
             strokeLinecap="round"
             strokeLinejoin="round"

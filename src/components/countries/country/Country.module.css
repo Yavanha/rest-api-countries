@@ -35,12 +35,19 @@
 .country-info {
     padding: 2rem;
     padding-bottom: 4rem;
-    color: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+
+.country-info.dark {
+    color: var(--white);
+}
+
+.country-info.light {
+    color : var( --light-very-dark-blue)
+}
 
 
 .country-info h4 {

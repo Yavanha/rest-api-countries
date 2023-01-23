@@ -7,9 +7,9 @@ const CountryDetails = props => {
     const { flags, name, population, languages, capital, region, subregion, tld, borders, currencies } = props.country
     const nativeName = name.nativeName[Object.keys(name.nativeName).at(-1)].common
     const languagesList = Object.values(languages).toString()
-    const currency = Object.values(currencies).at(0).name
+    const currency = currencies ? Object.values(currencies).at(0).name : 'No Currency'
     const borderCountries = useSelector(state => state.countries.items)
-
+    const theme = useSelector(state => state.ui.theme.mode)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -22,11 +22,11 @@ const CountryDetails = props => {
         dispatch(countryActions.addSelected(borderCountries[+e.target.id]))
     }
 
-    return <article className={classes['country-details']}>
+    return <article className={`${classes['country-details']} ${classes[theme]}`}>
         <header className={classes['country-header']}>
             <button onClick={props.onBack} className={classes['back-btn']}>Back</button>
         </header>
-        <div className={classes['details-body']}>
+        <div className={`${classes['details-body']} ${classes[theme]}`}>
             <img className={classes['details-img']} src={flags.png} alt={`Flag of ${name.common}`} />
             <div className={classes['details-infos']}>
                 <h2 className={classes['details-title']}>{name.common}</h2>
@@ -46,7 +46,7 @@ const CountryDetails = props => {
                     </ul>
                 </div>
                 <div className={classes.borders}>
-                    <h4 className={classes['borders-title']}>Border countries:</h4>
+                    <h4 className={`${classes['borders-title']} ${classes[theme]}`}>Border countries:</h4>
                     <div className={classes['borders-actions']}>
                         {borderCountries.slice(0, 3).map((borderCountry, i) =>
                             <button id={i} key={borderCountry.name.official} onClick={selectedHandler} className={classes['border-btn']}>{borderCountry.name.common}</button>

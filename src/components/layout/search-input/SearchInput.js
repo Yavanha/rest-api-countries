@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import useInput from "../../../hooks/use-input"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { abortRequest, fetchCountries } from "../../../store/country-slice"
 import SearchIcon from "../../UI/icons/SearchIcon"
 import Input from "../../UI/Input"
@@ -12,7 +12,8 @@ const SearchInput = props => {
 
 
     const { value: searchValue, isTouched: searchIsTouched, changeHandler } = useInput()
-
+    const theme = useSelector(state => state.ui.theme.mode)
+    const colorIcon = theme === 'dark' ? '#FFFFFF' : '#858585'
     const searchChangeHandler = (e) => {
         changeHandler(e.target.value)
     }
@@ -34,9 +35,9 @@ const SearchInput = props => {
     }, [searchValue, dispatch, searchIsTouched])
 
 
-    return <div className={classes['search-input']}>
-        <SearchIcon height='20' width='20' color='#FFFFFF' />
-        <Input className={classes.input} value={searchValue} onChange={searchChangeHandler} placeholder='Search for a country...' />
+    return <div className={`${classes['search-input']} ${classes[theme]}`}>
+        <SearchIcon height='20' width='20' color={colorIcon} />
+        <Input className={`${classes.input} ${classes[theme]}`} value={searchValue} onChange={searchChangeHandler} placeholder='Search for a country...' />
     </div>
 }
 

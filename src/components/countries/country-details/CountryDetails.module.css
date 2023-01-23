@@ -12,23 +12,40 @@
 
 
 
-.country-details button {
+.country-details.dark button {
     color : var(--white);
     background-color: var(--dark-blue);
 }
 
+.country-details.light button {
+    color : var(--light-very-dark-blue);
+    background-color: var(--white);
+    box-shadow: .2rem .2rem .5rem .05rem rgba(0, 0, 0, 0.2)
+
+
+}
+
 .back-btn {
-    box-shadow: .1rem .1rem 1rem .05rem rgba(0,0,0,.3);
+    box-shadow: .2rem .2rem .5rem .05rem rgba(0, 0, 0, 0.2);
     border-radius: .1rem;
     padding: .75rem 4rem;
 }
 
 .details-body {
-    color : var(--white);
     display: flex;
     flex-wrap: wrap;
     gap: 5rem 10rem;
 }
+
+.details-body.dark {
+    color : var(--white);
+}
+
+.details-body.light {
+    color : var(--light-very-dark-blue);
+
+}
+
 
 
 .details-body > * {
@@ -70,8 +87,12 @@
     row-gap: 1rem;
 }
 
-.borders-title {
+.borders-title.dark {
     color :var(--white);
+}
+
+.borders-title.light {
+    color :var(--light-very-dark-blue);
 }
 
 .borders {

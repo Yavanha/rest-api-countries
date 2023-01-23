@@ -21,6 +21,11 @@
     color : var(--white);
 }
 
+.main-header.light,
+.header-button.light {
+    color : var(--light-very-dark-blue);
+}
+
 .header-title {
     letter-spacing: .01rem;
 }

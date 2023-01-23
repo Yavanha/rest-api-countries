@@ -1,4 +1,5 @@
 import { useReducer } from 'react'
+import { useSelector } from 'react-redux'
 import classes from './Dropdown.module.css'
 
 import ChevronDown from './icons/ChevronDown'
@@ -50,6 +51,9 @@ const openDropdownReducer = (state, action) => {
 const Dropdown = props => {
 
     const [dropdown, dispatch] = useReducer(openDropdownReducer, defaultState)
+    const theme = useSelector(state => state.ui.theme.mode)
+    const color = theme === 'dark' ? '#FFFFFF' : '#111517'
+
     
     let iconDropdown, toggleTxt; 
     
@@ -74,11 +78,11 @@ const Dropdown = props => {
     }
     
     if(dropdown.selected === '') {
-        iconDropdown = <ChevronDown height='20' width='20' fill='#FFFFFF' /> 
+        iconDropdown = <ChevronDown height='20' width='20' fill={color} /> 
         toggleTxt= props.label;
 
     } else {
-        iconDropdown = <CloseCircleIcon onClick={deselectedChangeHandler} height='20' width='20' fill='#FFFFFF' />
+        iconDropdown = <CloseCircleIcon onClick={deselectedChangeHandler} height='20' width='20' fillOuter='#FFFFFF' fillInner={color} />
         toggleTxt = dropdown.selected
     }
     const options = props.options.map(option => (
@@ -87,12 +91,12 @@ const Dropdown = props => {
     
  
 
-    return <div className={`${classes.dropdown} ${props.className}`}>
-        <button  className={classes['dropdown-toggle']} onClick={toggleDropowndHandler} ><span className={classes.text}>{toggleTxt}</span> {iconDropdown} </button>
+    return <div className={`${classes.dropdown} ${classes[theme]} ${props.className}`}>
+        <button  className={`${classes['dropdown-toggle']} ${classes[theme]}`} onClick={toggleDropowndHandler} ><span className={classes.text}>{toggleTxt}</span> {iconDropdown} </button>
         
        
         <div className={dropdown.dropdownClasse}>
-            <ul className={`${classes['dropdown-menu']}`} value={dropdown.selected}>
+            <ul className={`${classes['dropdown-menu']} ${classes[theme]}`} value={dropdown.selected}>
                 {options}
             </ul>
         </div>
