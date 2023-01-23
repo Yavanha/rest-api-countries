@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import useInput from "../../../hooks/use-input"
 import { useDispatch } from "react-redux"
-import {abortRequest, fetchCountries } from "../../../store/country-slice"
+import { abortRequest, fetchCountries } from "../../../store/country-slice"
 import SearchIcon from "../../UI/icons/SearchIcon"
 import Input from "../../UI/Input"
 import classes from "./SearchInput.module.css"
@@ -10,13 +10,13 @@ import classes from "./SearchInput.module.css"
 
 const SearchInput = props => {
 
-    
-    const { value: searchValue, isTouched : searchIsTouched, changeHandler: searchChangeHandler } = useInput()
+
+    const { value: searchValue, isTouched: searchIsTouched, changeHandler: searchChangeHandler } = useInput()
     const dispatch = useDispatch()
     useEffect(() => {
-     
+
         const interval = setTimeout(() => {
-            if(!searchIsTouched) return;
+            if (!searchIsTouched) return;
             if (searchValue.trim() !== '') {
                 dispatch(fetchCountries(`https://restcountries.com/v3.1/name/${searchValue}`))
             }
@@ -25,7 +25,6 @@ const SearchInput = props => {
         }, 300)
         return () => {
             clearInterval(interval)
-            console.log(interval)
             dispatch(abortRequest())
         }
     }, [searchValue, dispatch, searchIsTouched])

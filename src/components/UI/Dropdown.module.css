@@ -9,7 +9,8 @@
 
 .dropdown-toggle {
     padding: 1rem;
-    color : var(--white)
+    color : var(--white);
+    display: flex;
 }
 
 
@@ -17,12 +18,10 @@
     position: absolute ;
     top: 105%;
     width: 100%;
-    z-index: 99;
+    z-index: 100;
     background-color: inherit;
     border-radius: .5rem;
     transform-origin: top;
-    animation: down .2s ease-in-out forwards;
-
 }
 
 
@@ -50,6 +49,12 @@
 
 }
 
+.hide {
+    display: none;
+}
+.down {
+    animation: down .2s ease-in-out forwards;
+}
 
 @keyframes down {
     from {
@@ -61,4 +66,16 @@
     }
 }
 
+.up {
+    animation: up .2s ease-in-out forwards;
+}
 
+@keyframes up {
+    from {
+        transform: scaleY(1);
+    }
+
+    to {
+        transform: scaleY(0);
+    }
+}

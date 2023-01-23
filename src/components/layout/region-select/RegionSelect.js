@@ -1,43 +1,62 @@
 import classes from './RegionSelect.module.css'
 import Dropdown from "../../UI/Dropdown"
-import useInput from '../../../hooks/use-input'
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchCountries } from '../../../store/country-slice'
 
 
 const RegionSelect = props => {
-    
 
-    const {value: selectValue, changeHandler: selectChangeHandler } = useInput('')
+
+    const  [selected, setSelected]  = useState('');
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const sendRequest = () => {
+            if (selected.trim() === '') return;
+            dispatch(fetchCountries(`https://restcountries.com/v3.1/region/${selected}`))
+        }
+
+        sendRequest()
+    }, [selected, dispatch])
+
+    const selectChangeHandler = (selected) => {
+        setSelected(selected)
+    }
+
     const options = [
-  
+
         {
             id: 'r2',
             text: 'Africa',
-            value : 'africa'
+            value: 'africa'
         },
         {
             id: 'r3',
             text: 'America',
-            value : 'america'
+            value: 'america'
         },
         {
             id: 'r4',
             text: 'Asia',
-            value : 'asia'
+            value: 'asia'
         },
         {
             id: 'r5',
             text: 'Europe',
-            value : 'europe'
+            value: 'europe'
         },
         {
             id: 'r6',
             text: 'Oceania',
-            value : 'oceania'
+            value: 'oceania'
         },
 
     ]
 
-    return <Dropdown className={classes['region-select']} options={options} id='region-select' value={selectValue} onChange={selectChangeHandler} />
- 
+
+
+    return <Dropdown className={classes['region-select']} options={options} id='region-select' selected={selected} onSelected={selectChangeHandler} />
+
 }
 export default RegionSelect
