@@ -5,12 +5,20 @@
     align-items: center;
     border-radius: .5rem;
 
+
 }
 
 .dropdown-toggle {
     padding: 1rem;
-    color : var(--white);
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.dropdown-toggle .text{
+    color : var(--white);
+
 }
 
 

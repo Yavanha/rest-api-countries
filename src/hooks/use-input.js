@@ -7,8 +7,8 @@ const useInput = (defaultValue = '') => {
     
 
 
-    const changeHandler = (event) => {
-        setValue(event.target.value.trim())
+    const changeHandler = (value) => {
+        setValue(value)
         setIsTouched(true)
     }
 

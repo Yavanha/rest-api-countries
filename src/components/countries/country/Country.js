@@ -14,10 +14,10 @@ const Country = props => {
     const {name, population, capital, flags, region} = props.data
     return <Card theme={theme} className={`${classes.country} ${classes[theme]}`} onClick={selectCountryHandler}>
         <div className={classes['country-img']}>
-            <img src={flags.png} alt={`The flag of ${name.official}`} />
+            <img src={flags.png} alt={`The flag of ${name.common}`} />
         </div>
         <div className={classes['country-info']}>
-            <h4>{name.official}</h4>
+            <h4>{name.common}</h4>
             <ul className={classes['list-infos']}>
                 
                 <li><span className={classes['legend-info']} >Population</span>: {population}</li>

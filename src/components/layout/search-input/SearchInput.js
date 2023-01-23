@@ -11,7 +11,11 @@ import classes from "./SearchInput.module.css"
 const SearchInput = props => {
 
 
-    const { value: searchValue, isTouched: searchIsTouched, changeHandler: searchChangeHandler } = useInput()
+    const { value: searchValue, isTouched: searchIsTouched, changeHandler } = useInput()
+
+    const searchChangeHandler = (e) => {
+        changeHandler(e.target.value)
+    }
     const dispatch = useDispatch()
     useEffect(() => {
 
