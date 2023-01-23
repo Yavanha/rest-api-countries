@@ -55,6 +55,7 @@ const Dropdown = props => {
     
     
     const toggleDropowndHandler = () => {
+        if(dropdown.selected !== '') return;
         dispatch({ type: TOGGLE_ACTION })
     }
 
