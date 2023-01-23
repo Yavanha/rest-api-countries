@@ -16,8 +16,8 @@
 }
 
 
-.main-header .dark,
-.header-button .dark{
+.main-header.dark,
+.header-button.dark {
     color : var(--white);
 }
 

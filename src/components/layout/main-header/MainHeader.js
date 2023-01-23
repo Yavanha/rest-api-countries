@@ -20,7 +20,7 @@ const MainHeader = props => {
         <header className={`${classes['main-header'] } ${classes[theme]}`}>
             <h4 className={classes['header-title']}>Where in the world?</h4>
 
-            <button onClick={darkModeChangeHandler} className={classes['header-button']}>
+            <button onClick={darkModeChangeHandler} className={`${classes['header-button'] } ${classes[theme]}`}>
                 <MoonIcon height='15' width='15' color='#FFFFFF' />
                 Dark Mode
             </button>

@@ -1,14 +1,14 @@
 import { useState } from "react"
 
-const useInput = () => {
+const useInput = (defaultValue = '') => {
 
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState(defaultValue)
     const [isTouched, setIsTouched] = useState(false)
     
 
 
-    const changeHandler = (event) => {
-        setValue(event.target.value.trim())
+    const changeHandler = (value) => {
+        setValue(value)
         setIsTouched(true)
     }
 

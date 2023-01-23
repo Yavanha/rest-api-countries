@@ -4,6 +4,7 @@
     background-color: var(--dark-blue);
     padding: 1.5rem 2.5rem;
     border-radius: .5rem;
+    flex-basis: 40rem;
     
 }
 

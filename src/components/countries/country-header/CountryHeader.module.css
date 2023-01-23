@@ -2,4 +2,10 @@
     max-width: 125rem;
     margin: 0 auto;
     margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap : 4rem;
 }
+
+
